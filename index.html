@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Live me sucks</title>		
+		<link   href="video-js-6.6.3/video-js.min.css" rel="stylesheet" >							
+		<script src="video-js-6.6.3/video.min.js" ></script>	
+		<script>		
+			window.HELP_IMPROVE_VIDEOJS = false;
+			videojs.log.level('off');
+			videojs.options.autoplay = true;			
+			 var checkLiveme = (function(user_id){				
+				var http = new XMLHttpRequest();
+				var url = "http://live.ksmobile.net/live/getreplayvideos?userid=" + user_id +"&page_size=1&page_index=1";					
+				http.open("GET", url, true);
+				http.onreadystatechange = function() {
+					if(http.readyState == 4 && http.status == 200) {
+						var resp = JSON.parse(http.responseText);												
+						if(resp && resp.status && resp.status.toString() == "200" && resp.data && resp.data.video_info && resp.data.video_info.length > 0)
+						{
+							var curvid = resp.data.video_info[0];
+							if(curvid.online.toString() == "0")	
+							{
+								document.title = curvid.uname.toString() + " is offline";								
+							}
+							else
+							{
+								document.title = curvid.uname.toString() + " is live since " + curvid.videolength.toString();
+								videojs('cx').ready(function () {									
+									this.src({type: 'application/x-mpegURL', src: curvid.hlsvideosource || curvid.videosource});
+								});	
+								return;
+							}								
+						}		
+						var hCheckLive = window.setTimeout(function() {
+						  checkLiveme(user_id);		
+						}, 30000);							
+						console.debug(http.responseText);					
+					}
+				}
+				http.send();				
+			});
+			checkLiveme("948467854813044736");											
+		</script>			
+	</head>
+	<body>
+		<div id="vidcontainer" class="clearfix">
+			<video
+				id="cx"
+				class="video-js"
+				controls
+				preload="auto"
+				poster="https://i.imgur.com/hJmH9Xj.jpg"
+				data-setup='{}'	>			  
+			  <p class="vjs-no-js">
+				To view this video please enable JavaScript, and consider upgrading to a
+				web browser that
+				<a href="http://videojs.com/html5-video-support/" target="_blank">
+				  supports HTML5 video
+				</a>
+			  </p>
+			</video>
+		</div>	
+		<div>
+		
+		</div>		
+	</body>
+</html>
