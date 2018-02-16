@@ -1,24 +1,36 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charSet="utf8"/>
+		<title>Live me sucks</title>			
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>		
-
-      <meta property="og:video:tag" content="ice poseidon"/>
-      <meta property="og:video:tag" content="live"/>
-      <meta property="og:video:tag" content="vlog"/>
-      <meta property="og:video:tag" content="live vlog"/>
-      <meta property="og:video:tag" content="adventure"/>
-      <meta property="og:video:tag" content="twitch"/>
-      <meta property="og:video:tag" content="livestream"/>
-      <meta property="og:video:tag" content="cx"/>
-      <meta property="og:video:tag" content="youtube"/>
-      <meta property="og:video:tag" content="youtube live"/>
-      <meta property="og:video:tag" content="youtube gaming"/>
-      <meta property="og:video:tag" content="gaming"/>
-      <meta property="og:video:tag" content="twitter"/>
+		<meta name="keywords" content="ice poseidon, stream, liveme, live, vlog, live vlog, adventure, twitch, livestream, cx, youtube, youtube live, youtube gaming, gaming, twitter"/>
+		<meta property="og:video:tag" content="ice poseidon"/>
+		<meta property="og:video:tag" content="liveme"/>
+		<meta property="og:video:tag" content="ice poseidon stream"/>
+		<meta property="og:video:tag" content="live"/>
+		<meta property="og:video:tag" content="vlog"/>
+		<meta property="og:video:tag" content="live vlog"/>
+		<meta property="og:video:tag" content="adventure"/>
+		<meta property="og:video:tag" content="twitch"/>
+		<meta property="og:video:tag" content="livestream"/>
+		<meta property="og:video:tag" content="cx"/>
+		<meta property="og:video:tag" content="youtube"/>
+		<meta property="og:video:tag" content="youtube live"/>
+		<meta property="og:video:tag" content="youtube gaming"/>
+		<meta property="og:video:tag" content="gaming"/>
+		<meta property="og:video:tag" content="twitter"/>
+		<meta name="robots" content="index, follow"/>	  
+		<meta property="og:type" content="website"/>
+		<meta property="og:image" content="https://i.imgur.com/UtU7BCE.png"/>	  
+		<meta property="og:site_name" content="Is Ice Poseidon Online"/>	  
+		<meta name="twitter:card" content="summary"/>
+		<meta name="twitter:image" content="https://i.imgur.com/UtU7BCE.png"/>	  
+		<meta name="twitter:site" content="@REALIcePoseidon"/>
+		<meta name="twitter:creator" content="@REALIcePoseidon"/>
+		<link rel="shortcut icon" href="https://i.imgur.com/UtU7BCE.png"/>
 	  
-		<title>Live me sucks</title>				
+			
 		<link   href="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.2/video-js.min.css" rel="stylesheet" />	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/6.7.2/video.min.js" type="text/javascript"></script>		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-flash/2.1.0/videojs-flash.min.js" ></script>	
@@ -43,6 +55,7 @@
 			}
 			
 			#replays {
+				font: normal 12px/1.5 "Montserrat", "Helvetica Neue", sans-serif;
 				width:  350px; 
 				height: 720px;
 				float:left;
@@ -58,7 +71,7 @@
 			.replay { 				
 				float:left;					
 				width: 328px; 
-				height: 96px;
+				height: 96px;				
 				border: solid 1px black;
 			}			
 			.replay img{ 
@@ -69,10 +82,19 @@
 
 			.replay ul{ 
 				width: 200px; 
-				height: 96px;				
+				height: 96px;					
 			}				
 
-			ul { list-style-type: none; color: black; }
+			li{ 
+				width: 195px; 				
+				margin: 5px;	
+				float				
+			}		
+			
+			ul { 
+				list-style-type: none; 
+				color: black; 
+			}
 			
 
 			#ytplaylist{
@@ -80,6 +102,7 @@
 			}
 			
 			#ytchat{
+				clear:both;
 				width: 800px; 
 				height: 200px;				
 			}		
@@ -109,35 +132,228 @@
 	</head>
 	<body>
 	
-	<div id="lmwrapper" class="clearfix">
-		<div id="replays">
-			
-		</div>
-		
-		<div id="vidcontainer" >
-			<video
-				id="cx"
-				class="video-js"
-				controls				
-				preload="auto"
-				poster="https://i.imgur.com/BdDlzZi.jpg"
-				data-setup='{}'	>			  
-			  <p class="vjs-no-js">
-				To view this video please enable JavaScript, and consider upgrading to a
-				web browser that
-				<a href="http://videojs.com/html5-video-support/" target="_blank">
-				  supports HTML5 video
-				</a>
-			  </p>
-			</video>
-		</div>			
-	</div>
+		<div id="lmwrapper" class="clearfix">
+			<div id="replays">
 				
-			<script type="text/javascript">		
+			</div>
+			
+			<div id="vidcontainer" >
+				<video	id="cx" class="video-js"	>			  
+				  <p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a
+					web browser that
+					<a href="http://videojs.com/html5-video-support/" target="_blank">
+					  supports HTML5 video
+					</a>
+				  </p>
+				</video>
+			</div>			
+		</div>
+				
+		<script type="text/javascript">		
 			 window.HELP_IMPROVE_VIDEOJS = false;
 			 videojs.log.level('off');
 			 videojs.options.autoplay = true;	
-			 
+
+			//https://stackoverflow.com/questions/6312993/javascript-seconds-to-time-string-with-format-hhmmss									
+			String.prototype.toHHMMSS = function () {
+				var sec_num = parseInt(this, 10); // don't forget the second param
+				var hours   = Math.floor(sec_num / 3600);
+				var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+				var seconds = sec_num - (hours * 3600) - (minutes * 60);
+
+				if (hours   < 10) {hours   = "0"+hours;}
+				if (minutes < 10) {minutes = "0"+minutes;}
+				if (seconds < 10) {seconds = "0"+seconds;}
+				return hours+':'+minutes+':'+seconds;
+			}
+			
+			String.prototype.toTimestamp = function () {
+				var usec = parseInt(this, 10)*1000
+				var date = new Date(usec);
+				return  date.getFullYear() + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + ('0' + date.getDate()).slice(-2) + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);							
+			}			
+					
+								
+			var initplayer;
+			var liveme = {};								
+			var do_checkLiveme = true;
+			var thumbmap = {
+				"default":			    "https://i.imgur.com/BdDlzZi.jpg",
+				"15179817724585424612": "https://i.imgur.com/gfkMF02.jpg",
+				"15184839521855475328": "https://i.imgur.com/V13ptU6.jpg",					
+				"15160700456754097725": "https://i.imgur.com/87NHGvb.jpg",					
+				"15160706769364336526": "https://i.imgur.com/fAzScFE.jpg",					
+				"15160749377424138537": "https://i.imgur.com/1HtNvBW.jpg",					
+				"15160754045280463355": "https://i.imgur.com/rvnLR5G.jpg",					
+				"15160817938173972904": "https://i.imgur.com/xQ2HU90.jpg",					
+				"15160824531515752707": "https://i.imgur.com/CfEt37x.jpg",					
+				"15163268654526403669": "https://i.imgur.com/xmqAaH2.jpg",					
+				"15166704329986352654": "https://i.imgur.com/OCGTYO3.jpg",					
+				"15169333188762124900": "https://i.imgur.com/OtZlJOF.jpg",					
+				"15170294249993511350": "https://i.imgur.com/4UCODlo.jpg",					
+				"15170334512552890927": "https://i.imgur.com/HSFXM3k.jpg",					
+				"15170381447081775480": "https://i.imgur.com/TAwMlEg.jpg",					
+				"15172893521853222273": "https://i.imgur.com/YLJRoUT.jpg",					
+				"15172939697561995528": "https://i.imgur.com/eYA2BSu.jpg",					
+				"15176333015939603516": "https://i.imgur.com/yP71FUZ.jpg",	
+				"15184842682790048830": "https://i.imgur.com/MfjSLzG.jpg",
+				"15182267486197461468": "https://i.imgur.com/crMrTKQ.jpg",
+				"15181471161112242210": "https://i.imgur.com/CdawhqI.jpg",
+				};					
+						
+			liveme = {
+					initplayer: (function(id_player){				
+					var options = { 
+						autoplay:true,
+						poster: thumbmap['default'],
+						playsInline:false, 							
+						preload:'auto',
+						allowfullscreen:true,
+						webkitallowfullscreen:true,
+						mozallowfullscreen:true,
+						controls:true,			
+						//aspectRatio:"4:3",
+						fluid:false,												
+						playbackRates: [0.25, 0.5, 0.75, 1,1.25, 1.5, 2, 3], 												
+					};						
+					return videojs(id_player, options, function (){											
+					});
+				}),				
+				loadvideo: (function (curvid){
+					console.debug(curvid);
+					videojs('cx').ready(function (){									
+						console.debug( curvid.replace("http://","https://"));									
+						this.src({type:  (!!window.chrome && !!window.chrome.webstore) ? "application/vnd.apple.mpegurl" :  'application/x-mpegURL' , src: curvid.replace("http://","https://")});																	  
+					});				
+				}),			
+				loadchat: (function(msgfile){			
+					console.debug(msgfile);
+					if(msgfile)
+					{
+						var cors = {mozSystem:true, mozAnon:true };
+						var http = new XMLHttpRequest(cors);						
+						http.open("GET", msgfile);
+						//http.setRequestHeader("Access-Control-Allow-Origin", '*');
+						//http.setRequestHeader("Origin", 'sz.live.ksmobile.net');
+						http.onreadystatechange = function() {
+								if(http.readyState == 4 && http.status == 200) {
+									console.debug(http.responseText);
+									var resp = JSON.parse("[" + http.responseText.replace("\n{", ",") + "]");	
+									if(resp)
+									{
+										var player = videojs('cx');
+										var track = player.addTextTrack("chat", "liveme", "en");
+										track.mode = "showing";									
+										resp.forEach(function(curvid){
+											for (i = 0; i < player.textTracks.length; i++) {
+												player.textTracks[i].mode = "hidden";
+											}										
+											track.addCue(new VTTCue(0, 12, "Loaded Cues"));										
+											console.debug(curvid);												
+										});
+									}											
+							}									
+						}
+						http.send();
+					}
+				}),			 			 
+				checklive: (function(user_id){
+					var http = new XMLHttpRequest();
+					var url = "https://live.ksmobile.net/live/getreplayvideos?userid=" + user_id +"&page_size=100&page_index=1";					
+					http.open("GET", url);
+					http.onreadystatechange = function() {
+						if(http.readyState == 4 && http.status == 200) {
+							var resp = JSON.parse(http.responseText);												
+							if(resp && resp.status && resp.status.toString() == "200" && resp.data && resp.data.video_info && resp.data.video_info.length > 0)
+							{							
+								var replayContainer = document.getElementById("replays");									
+								resp.data.video_info.forEach(function(curvid){
+									var newvidid = "r" + curvid.vid;
+									if(document.getElementById(newvidid))	
+										return;
+									var d = document.createElement("div");																										
+									d.id = newvidid;
+									d.dataset.m3u8 =  curvid.hlsvideosource || curvid.videosource;
+									d.dataset.vid = curvid.vid;
+									d.dataset.msgfile = curvid.msgfile || curvid.gzip_msgfile ;
+									d.dataset.online = curvid.online;
+									d.classList.add("replay");											
+									d.innerHTML = "<img src='"+ 
+									 thumbmap[thumbmap.hasOwnProperty(curvid.vid) ? curvid.vid : 'default' ] + "'/></img><ul class='replaytext'><li style='font-weight: bold;'>"+ 
+									 curvid.vtime.toString().toTimestamp()  +
+									"</li><li>"+ curvid.videolength.toString().toHHMMSS()  +"</li><li>"+curvid.watchnumber.toString() +" views</li></ul>";								
+									d.addEventListener("click", function() {
+										liveme.loadvideo(this.dataset.m3u8);	
+										liveme.loadchat(this.dataset.msgfile);
+									});
+									replayContainer.appendChild(d);								
+								});
+								var curvid = resp.data.video_info[0];
+								if(curvid.online.toString() == "0")															
+									document.title = curvid.uname.toString() + " is offline @ liveme | Youtube live not yet implemented";															
+								else
+								{
+									document.title = curvid.uname.toString() + " has been live since " + curvid.vtime.toString().toTimestamp();	
+									liveme.loadvideo(curvid.hlsvideosource || curvid.videosource);	
+									return;
+								}								
+							}	
+							if(do_checkLiveme)					
+							{
+								window.setTimeout(function() {
+								  liveme.checklive(user_id);		
+								}, 30000);							
+							}
+							console.debug(http.responseText);											
+						}
+					};
+					http.send();				
+				})													
+			};			
+			
+			document.addEventListener("DOMContentLoaded", function(event) { 
+				var player = liveme.initplayer("cx");
+				player.on('ready', function() {
+					console.debug(this, "ready");																	
+					liveme.checklive("948467854813044736");		
+				  }); 						
+				player.on('ended', function() {
+					console.debug(this, "ended");																	
+					do_checkLiveme = true;
+					liveme.checklive("948467854813044736");
+				  });  
+				player.on('error', function() {
+					console.debug(this, "error");
+					do_checkLiveme = true;
+					liveme.checklive("948467854813044736");							
+				  }
+				);  					
+				player.on('play', function() {
+					console.debug(this, "play");	
+					//load chat
+					do_checkLiveme = false;						
+				  });								  
+			});
+				
+		
+		</script>	
+
+		
+		<!--	
+		<div id="ytwrapper" class="clearfix">	
+			<div id="ytplaylist" class="clearfix">
+				<iframe id="ytplayer" 
+						src="https://www.youtube.com/embed/videoseries?list=PL1bUm0Z1HpzMatzb5PdMAjo7_AoGrvHaW" 
+						frameborder="0" allow="autoplay; encrypted-media" allowfullscreen/>								
+			</div>
+			
+			<div id="ytchat" >
+				<iframe class="chat-iframe" width="100%" height="100%" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-modals" src="https://gaming.youtube.com/live_chat?v=_khNoKf5lDs&output=embed&embed_domain=cheapwhoreslover.github.io"/>				
+			</div>
+			
+		</div>
+		<script>
 //			 var loadPlaylistYT = (function(playlist){				
 //				var http = new XMLHttpRequest();
 //				var url = "https://www.youtube.com/list_ajax?style=json&action_get_list=1&list=" + playlist;					
@@ -167,152 +383,18 @@
 //				http.send();				
 //			});
 //			loadPlaylistYT("PL1bUm0Z1HpzMatzb5PdMAjo7_AoGrvHaW");	
-			//UCv9Edl_WbtbPeURPtFDo-uA
+			//UCv9Edl_WbtbPeURPtFDo-uA		
+		</script>
+-->
 
-			//https://stackoverflow.com/questions/6312993/javascript-seconds-to-time-string-with-format-hhmmss
-			String.prototype.toHHMMSS = function () {
-				var sec_num = parseInt(this, 10); // don't forget the second param
-				var hours   = Math.floor(sec_num / 3600);
-				var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-				var seconds = sec_num - (hours * 3600) - (minutes * 60);
-
-				if (hours   < 10) {hours   = "0"+hours;}
-				if (minutes < 10) {minutes = "0"+minutes;}
-				if (seconds < 10) {seconds = "0"+seconds;}
-				return hours+':'+minutes+':'+seconds;
-			}
-
-							
-			document.addEventListener("DOMContentLoaded", function(event) { 
-			 
-				var thumbmap = {
-					"default":			    "https://i.imgur.com/BdDlzZi.jpg",
-					"15179817724585424612": "https://i.imgur.com/gfkMF02.jpg",
-					"15184839521855475328": "https://i.imgur.com/V13ptU6.jpg",					
-					"15160700456754097725": "https://i.imgur.com/87NHGvb.jpg",					
-					"15160706769364336526": "https://i.imgur.com/fAzScFE.jpg",					
-					"15160749377424138537": "https://i.imgur.com/1HtNvBW.jpg",					
-					"15160754045280463355": "https://i.imgur.com/rvnLR5G.jpg",					
-					"15160817938173972904": "https://i.imgur.com/xQ2HU90.jpg",					
-					"15160824531515752707": "https://i.imgur.com/CfEt37x.jpg",					
-					"15163268654526403669": "https://i.imgur.com/xmqAaH2.jpg",					
-					"15166704329986352654": "https://i.imgur.com/OCGTYO3.jpg",					
-					"15169333188762124900": "https://i.imgur.com/OtZlJOF.jpg",					
-					"15170294249993511350": "https://i.imgur.com/4UCODlo.jpg",					
-					"15170334512552890927": "https://i.imgur.com/HSFXM3k.jpg",					
-					"15170381447081775480": "https://i.imgur.com/TAwMlEg.jpg",					
-					"15172893521853222273": "https://i.imgur.com/YLJRoUT.jpg",					
-					"15172939697561995528": "https://i.imgur.com/eYA2BSu.jpg",					
-					"15176333015939603516": "https://i.imgur.com/yP71FUZ.jpg",	
-					"15184842682790048830": "https://i.imgur.com/MfjSLzG.jpg",
-					"15182267486197461468": "https://i.imgur.com/crMrTKQ.jpg",
-					"15181471161112242210": "https://i.imgur.com/CdawhqI.jpg",
-					};
-					
-				function unixts_str(unixTimeStamp) {
-					var date = new Date(unixTimeStamp);
-					return ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-				  }
-				
-				function initplayer()				
-				{
-					var player = videojs(document.querySelector('cx'),{ 
-						playbackRates: [1, 1.5, 2, 3], 
-						techOrder: ['hls', 'html5', 'flash'] ,			  
-						  plugins: {
-								chromecast: {},
-								flash: {},
-								"contrib-hls": {},
-							}													
-					});
-				}
-
-		
-			  function loadvideo(curvid)
-			  {
-				videojs('cx').ready(function (){									
-					console.debug( curvid);									
-					this.src({type: 'application/x-mpegURL', src: curvid.replace("http://","https://")});									
-//				this.on('ended', function() {
-//					console.debug(this, "ended");																	
-//				  }
-//				);  
-//				this.on('error', function() {
-//					console.debug(this, "error");																					
-//				  }
-//				);  					
-//				this.on('play', function() {
-//					console.debug(this, "play");	
-//				  });	
-					//this.play();									  
-				});			  
-			  }
-  
-			 var checkLiveme = (function(user_id){		
-				var http = new XMLHttpRequest();
-				var url = "https://live.ksmobile.net/live/getreplayvideos?userid=" + user_id +"&page_size=100&page_index=1";					
-				http.open("GET", url, true);
-				http.onreadystatechange = function() {
-					if(http.readyState == 4 && http.status == 200) {
-						var resp = JSON.parse(http.responseText);												
-						if(resp && resp.status && resp.status.toString() == "200" && resp.data && resp.data.video_info && resp.data.video_info.length > 0)
-						{							
-							var replayContainer = document.getElementById("replays");									
-							resp.data.video_info.forEach(function(curvid){
-								var newvidid = "r" + curvid.vid;
-								if(document.getElementById(newvidid))	
-									return;
-								var d = document.createElement("div");																										
-								d.id = newvidid;
-								d.dataset.m3u8 =  curvid.hlsvideosource || curvid.videosource;
-								d.dataset.vid = curvid.vid;
-								d.classList.add("replay");											
-								d.innerHTML = "<img class='replayimg' src='"+ 
-								 thumbmap[thumbmap.hasOwnProperty(curvid.vid) ? curvid.vid : 'default' ] + "'/></img><ul class='replaytext'><li style='font-weight: bold;'>"+ 
-								 (unixts_str(parseInt(curvid.vtime)*1000))  +
-								"</li><li>"+ curvid.videolength.toString().toHHMMSS()  +"</li><li>"+curvid.watchnumber.toString() +" views</li></ul>";								
-								d.addEventListener("click", function() {
-									loadvideo(this.dataset.m3u8);	
-								});
-								replayContainer.appendChild(d);								
-							});
-							var curvid = resp.data.video_info[0];
-							if(curvid.online.toString() == "0")															
-								document.title = curvid.uname.toString() + " is offline @ liveme | Youtube live not yet implemented";															
-							else
-							{
-								document.title = curvid.uname.toString() + " has been live for " + curvid.videolength.toString().toHHMMSS();								
-								loadvideo(curvid.hlsvideosource || curvid.videosource);	
-								return;
-							}								
-						}		
-						var hCheckLive = window.setTimeout(function() {
-						  checkLiveme(user_id);		
-						}, 30000);							
-						console.debug(http.responseText);					
-					}
-				}
-				http.send();				
-			});
-			checkLiveme("948467854813044736");		
-		});			 
-		</script>	
-
-			
-		<div id="ytwrapper" class="clearfix">	
-			<div id="ytplaylist" >
-				<iframe id="ytplayer" 
-						src="https://www.youtube.com/embed/videoseries?list=PL1bUm0Z1HpzMatzb5PdMAjo7_AoGrvHaW" 
-						frameborder="0" allow="autoplay; encrypted-media" allowfullscreen/>				
-			</div>
-			<!--
-			<div id="ytchat" >
-				<iframe class="chat-iframe" width="100%" height="100%" frameborder="0" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-modals" src="https://gaming.youtube.com/live_chat?v=_khNoKf5lDs&output=embed&embed_domain="/>
-			</div>
-			-->
-		</div>
-
-
+	<!-- Global site tag (gtag.js) - Google Analytics -->	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114276943-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-114276943-1');
+	</script>
 			
 	</body>
 </html>
