@@ -21,10 +21,12 @@
 		<title>Live me sucks</title>				
 		<link   href="https://vjs.zencdn.net/6.6.3/video-js.min.css" rel="stylesheet" />	
 		<script src="https://vjs.zencdn.net/6.6.3/video.min.js" type="text/javascript"></script>		
-		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-flash/2.1.0/videojs-flash.min.js" ></script>	
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.12.2/videojs-contrib-hls.js"></script>	
-	
+		
+		
+
+
 		<style>
 		
 			body {
@@ -87,12 +89,12 @@
 			#ytplayer{
 				width:1280px;
 				height:720px;
-				padding-left: 320px;				
+				padding-left: 350px;				
 			}
 			
 			#ytwrapper{
 				clear: both;
-				width: 1560px; 
+				width: 1700px; 
 				height:720px;					
 			}	
 				
@@ -186,61 +188,70 @@
 							
 			document.addEventListener("DOMContentLoaded", function(event) { 
 			 
-			function unixts_str(unixTimeStamp) {
-				var date = new Date(unixTimeStamp);
-				return ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
-			  }
-			  
+				var thumbmap = {
+					"default":			    "https://i.imgur.com/BdDlzZi.jpg",
+					"15179817724585424612": "https://i.imgur.com/gfkMF02.jpg",
+					"15184839521855475328": "https://i.imgur.com/V13ptU6.jpg",					
+					"15160700456754097725": "https://i.imgur.com/87NHGvb.jpg",					
+					"15160706769364336526": "https://i.imgur.com/fAzScFE.jpg",					
+					"15160749377424138537": "https://i.imgur.com/1HtNvBW.jpg",					
+					"15160754045280463355": "https://i.imgur.com/rvnLR5G.jpg",					
+					"15160817938173972904": "https://i.imgur.com/xQ2HU90.jpg",					
+					"15160824531515752707": "https://i.imgur.com/CfEt37x.jpg",					
+					"15163268654526403669": "https://i.imgur.com/xmqAaH2.jpg",					
+					"15166704329986352654": "https://i.imgur.com/OCGTYO3.jpg",					
+					"15169333188762124900": "https://i.imgur.com/OtZlJOF.jpg",					
+					"15170294249993511350": "https://i.imgur.com/4UCODlo.jpg",					
+					"15170334512552890927": "https://i.imgur.com/HSFXM3k.jpg",					
+					"15170381447081775480": "https://i.imgur.com/TAwMlEg.jpg",					
+					"15172893521853222273": "https://i.imgur.com/YLJRoUT.jpg",					
+					"15172939697561995528": "https://i.imgur.com/eYA2BSu.jpg",					
+					"15176333015939603516": "https://i.imgur.com/yP71FUZ.jpg",	
+					"15184842682790048830": "https://i.imgur.com/MfjSLzG.jpg",
+					"15182267486197461468": "https://i.imgur.com/crMrTKQ.jpg",
+					"15181471161112242210": "https://i.imgur.com/CdawhqI.jpg",
+					};
+					
+				function unixts_str(unixTimeStamp) {
+					var date = new Date(unixTimeStamp);
+					return ('0' + date.getDate()).slice(-2) + '/' + ('0' + (date.getMonth() + 1)).slice(-2) + '/' + date.getFullYear() + ' ' + ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2);
+				  }
+				
+				function initplayer()				
+				{
+					var player = videojs(document.querySelector('cx'),{ 
+						playbackRates: [1, 1.5, 2, 3], 
+						techOrder: ['hls', 'html5', 'flash'] ,			  
+						  plugins: {
+								chromecast: {},
+								flash: {},
+								"contrib-hls": {},
+							}													
+					});
+				}
+
+		
 			  function loadvideo(curvid)
 			  {
 				videojs('cx').ready(function (){									
 					console.debug( curvid);									
 					this.src({type: 'application/x-mpegURL', src: curvid});									
-					this.on('ended', function() {
-						console.debug(this, "ended");																	
-					  }
-					);  
-					this.on('error', function() {
-						console.debug(this, "error");																					
-					  }
-					);  					
-					this.on('play', function() {
-						console.debug(this, "play");	
-					  });	
+//				this.on('ended', function() {
+//					console.debug(this, "ended");																	
+//				  }
+//				);  
+//				this.on('error', function() {
+//					console.debug(this, "error");																					
+//				  }
+//				);  					
+//				this.on('play', function() {
+//					console.debug(this, "play");	
+//				  });	
 					//this.play();									  
 				});			  
 			  }
   
 			 var checkLiveme = (function(user_id){		
-				var thumbmap = {
-					"default":			    "https://i.imgur.com/BdDlzZi.jpg",
-					"15179817724585424612":"https://i.imgur.com/gfkMF02.jpg",
-					"15184839521855475328":"https://i.imgur.com/V13ptU6.jpg",					
-					"15160700456754097725":"https://i.imgur.com/87NHGvb.jpg",					
-					"15160706769364336526":"https://i.imgur.com/fAzScFE.jpg",					
-					"15160749377424138537":"https://i.imgur.com/1HtNvBW.jpg",					
-					"15160754045280463355":"https://i.imgur.com/rvnLR5G.jpg",					
-					"15160817938173972904":"https://i.imgur.com/xQ2HU90.jpg",					
-					"15160824531515752707":"https://i.imgur.com/CfEt37x.jpg",					
-					"15163268654526403669":"https://i.imgur.com/xmqAaH2.jpg",					
-					"15166704329986352654":"https://i.imgur.com/OCGTYO3.jpg",					
-					"15169333188762124900":"https://i.imgur.com/OtZlJOF.jpg",					
-					"15170294249993511350":"https://i.imgur.com/4UCODlo.jpg",					
-					"15170334512552890927":"https://i.imgur.com/HSFXM3k.jpg",					
-					"15170381447081775480":"https://i.imgur.com/TAwMlEg.jpg",					
-					"15172893521853222273":"https://i.imgur.com/YLJRoUT.jpg",					
-					"15172939697561995528":"https://i.imgur.com/eYA2BSu.jpg",					
-					"15176333015939603516":"https://i.imgur.com/yP71FUZ.jpg",	
-					"15184842682790048830":"https://i.imgur.com/MfjSLzG.jpg",
-					"15182267486197461468":"https://i.imgur.com/crMrTKQ.jpg",
-					"15181471161112242210":"https://i.imgur.com/CdawhqI.jpg",
-					};
-					
-					
-				
-					
-					
-				
 				var http = new XMLHttpRequest();
 				var url = "https://live.ksmobile.net/live/getreplayvideos?userid=" + user_id +"&page_size=100&page_index=1";					
 				http.open("GET", url, true);
@@ -270,7 +281,7 @@
 							});
 							var curvid = resp.data.video_info[0];
 							if(curvid.online.toString() == "0")															
-								document.title = curvid.uname.toString() + " is offline @ liveme | ";															
+								document.title = curvid.uname.toString() + " is offline @ liveme | Youtube live not yet implemented";															
 							else
 							{
 								document.title = curvid.uname.toString() + " has been live for " + curvid.videolength.toString().toHHMMSS();								
@@ -289,13 +300,13 @@
 			checkLiveme("948467854813044736");		
 		});			
 		</script>	
+
 			
 		<div id="ytwrapper" class="clearfix">	
 			<div id="ytplaylist" >
 				<iframe id="ytplayer" 
 						src="https://www.youtube.com/embed/videoseries?list=PL1bUm0Z1HpzMatzb5PdMAjo7_AoGrvHaW" 
-						frameborder="0" allow="autoplay; encrypted-media" allowfullscreen/>
-				
+						frameborder="0" allow="autoplay; encrypted-media" allowfullscreen/>				
 			</div>
 			<!--
 			<div id="ytchat" >
